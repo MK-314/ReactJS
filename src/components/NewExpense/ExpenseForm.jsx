@@ -22,9 +22,9 @@ var ExpenseForm = (props) => {
       date: new Date(enteredDate)
     };
     props.onSaveExpenseData(expenseData);
+    setEnteredTitle('');
     setEnteredAmount('');
     setEnteredDate('');
-    setEnteredTitle('');
   };
   return (
     <form onSubmit={submitHandler}>
@@ -44,7 +44,7 @@ var ExpenseForm = (props) => {
         <input
           type="date"
           min="2019-01-01"
-          step="2022-01-01"
+          step="2022-12-12"
           value={enteredDate}
           onChange={dateChangeHandler}/>
       </div>
