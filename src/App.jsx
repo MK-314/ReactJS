@@ -2,6 +2,9 @@ import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 
 function App() {
+  var addExpenseHandler = expense =>{
+    console.log('Got it');
+  }
   var expenses = [
     {
       id: 'e1',
@@ -27,7 +30,7 @@ function App() {
   ];
   return (
     <div>
-      <NewExpense/>
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <p>This is also visible!</p>
       <Expenses expenses={expenses}></Expenses>
     </div>
