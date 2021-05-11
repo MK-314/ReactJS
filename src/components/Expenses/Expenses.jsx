@@ -9,18 +9,13 @@ function Expenses({expenses}){
     var filterHandler = selectedYear =>{
         setFilteredYear(selectedYear);
     }
-    var returnArr = [];
+    var filteredByYear = expenses.filter(element=>element.date.getFullYear().toString() === filteredYear);
     return(
         <div>
             <Card className='expenses'>
                 <ExpensesFilter selected={filteredYear} onCustomFilter={filterHandler}/>
                 {/* {expenses.map(expenses => <ExpenseItem key={expenses.id} title={expenses.title} amount={expenses.amount} date={expenses.date}></ExpenseItem>)} */}
-                {expenses.forEach(element => {
-                    if(element.date.getFullYear().toString() === filteredYear){
-                        returnArr.push(<ExpenseItem key={element.id} title={element.title} amount={element.amount} date={element.date}></ExpenseItem>);
-                    }
-                })}
-                {returnArr}
+                {filteredByYear.map(expenses => <ExpenseItem key={expenses.id} title={expenses.title} amount={expenses.amount} date={expenses.date}></ExpenseItem>)}
             </Card>
         </div>
     );
